@@ -62,13 +62,13 @@
 
 - (void) setupDisclosureBar {
     disclosureTriangle = [[NSButton alloc] initWithFrame:NSMakeRect(5.0, 4.0, 13.0, 13.0)];
-    [disclosureTriangle setBezelStyle:NSDisclosureBezelStyle];
-    [disclosureTriangle setButtonType: NSPushOnPushOffButton];
-    [disclosureTriangle setTitle:nil];
+	[disclosureTriangle setBezelStyle:NSBezelStyleDisclosure];
+	[disclosureTriangle setButtonType: NSButtonTypePushOnPushOff];
+    [disclosureTriangle setTitle:@""];
     [disclosureTriangle highlight:NO];
     [disclosureTriangle setTarget:self];
     [disclosureTriangle setAction:@selector(disclosureClicked:)];
-    disclosureTriangle.state = (state == DMPaletteStateExpanded ? NSOnState : NSOffState);
+	disclosureTriangle.state = (state == DMPaletteStateExpanded ? NSControlStateValueOn : NSControlStateValueOff);
     
     nameField = [[NSTextField alloc] initWithFrame:NSMakeRect(20.0, 3.0, [self bounds].size.width - 8.0, 15.0)];
     [nameField setEditable:NO];
@@ -136,7 +136,7 @@
 - (void)setState:(DMPaletteState)_state
 {
 	state = _state;
-	disclosureTriangle.state = (state == DMPaletteStateExpanded ? NSOnState : NSOffState);
+	disclosureTriangle.state = (state == DMPaletteStateExpanded ? NSControlStateValueOn : NSControlStateValueOff);
 }
 
 @end
