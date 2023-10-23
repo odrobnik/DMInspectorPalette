@@ -95,7 +95,7 @@
     
         // Transparent background
     [[NSColor clearColor] set];
-    NSRectFillUsingOperation(dirtyRect, NSCompositeCopy);
+	NSRectFillUsingOperation(dirtyRect, NSCompositingOperationCopy);
     
     NSRect gradientFrame = NSMakeRect(0, 0, dirtyRect.size.width, kDMPaletteSectionHeaderHeight);
     NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:container.sectionHeaderGradientStartColor
@@ -111,7 +111,7 @@
     
     NSBezierPath *path = [NSBezierPath bezierPathWithRect:dashRect];
     [path setLineWidth:1];
-    [path setLineCapStyle:NSButtLineCapStyle];
+	[path setLineCapStyle:NSLineCapStyleButt];
     [path stroke];
 }
 
